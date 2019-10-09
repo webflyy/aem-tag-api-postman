@@ -1,0 +1,492 @@
+{
+	"info": {
+		"_postman_id": "edc14fb9-c361-4db8-8cf1-fa4794348c3a",
+		"name": "AEM TagManager API",
+		"description": "This collection sends requests to AEM's TagManager API endpoint /bin/tagcommand. The version of AEM is 6.5 at the time of this build. The host is localhost and port is 5502. It uses basic auth with u/p admin/admin.\n\nStatus codes:\n```\n200 - Success\n409 - Tag exists\n404 - Not found\n500 - Error\n```",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Tag",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "X-Requested-With",
+							"value": "XMLHttpRequest",
+							"type": "text"
+						},
+						{
+							"key": "Referer",
+							"value": "http://localhost:5502",
+							"type": "text"
+						},
+						{
+							"key": "Host",
+							"value": "localhost:5502",
+							"type": "text"
+						},
+						{
+							"key": "Origin",
+							"value": "http://localhost:5502",
+							"type": "text"
+						},
+						{
+							"key": "tag",
+							"value": "politics",
+							"type": "text"
+						},
+						{
+							"key": "jcr:title",
+							"value": "Politics-Title",
+							"type": "text"
+						},
+						{
+							"key": "jcr:description",
+							"value": "Politics-Description",
+							"type": "text"
+						},
+						{
+							"key": "parentTagID",
+							"value": "/content/cq:tags/news-website",
+							"type": "text"
+						},
+						{
+							"key": "_charset_",
+							"value": "utf-8",
+							"type": "text"
+						},
+						{
+							"key": "cmd",
+							"value": "createTag",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5502/bin/tagcommand",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5502",
+					"path": [
+						"bin",
+						"tagcommand"
+					]
+				},
+				"description": "This request will create a tag in AEM"
+			},
+			"response": []
+		},
+		{
+			"name": "Move Tag",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "X-Requested-With",
+							"value": "XMLHttpRequest",
+							"type": "text"
+						},
+						{
+							"key": "Referer",
+							"value": "http://localhost:5502",
+							"type": "text"
+						},
+						{
+							"key": "Host",
+							"value": "localhost:5502",
+							"type": "text"
+						},
+						{
+							"key": "Origin",
+							"value": "http://localhost:5502",
+							"type": "text"
+						},
+						{
+							"key": "_charset_",
+							"value": "utf-8",
+							"type": "text"
+						},
+						{
+							"key": "cmd",
+							"value": "moveTag",
+							"type": "text"
+						},
+						{
+							"key": "path",
+							"value": "/content/cq:tags/news-website/politics",
+							"type": "text"
+						},
+						{
+							"key": "dest",
+							"value": "/content/cq:tags/news-namespace/politics",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5502/bin/tagcommand",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5502",
+					"path": [
+						"bin",
+						"tagcommand"
+					]
+				},
+				"description": "This request will move a tag in AEM from `path` to `dest`"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Namespace",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "X-Requested-With",
+							"value": "XMLHttpRequest",
+							"type": "text"
+						},
+						{
+							"key": "Referer",
+							"value": "http://localhost:5502",
+							"type": "text"
+						},
+						{
+							"key": "Host",
+							"value": "localhost:5502",
+							"type": "text"
+						},
+						{
+							"key": "Origin",
+							"value": "http://localhost:5502",
+							"type": "text"
+						},
+						{
+							"key": "tag",
+							"value": "news-namespace",
+							"type": "text"
+						},
+						{
+							"key": "jcr:title",
+							"value": "News Namespace",
+							"type": "text"
+						},
+						{
+							"key": "jcr:description",
+							"value": "News Namespace Description",
+							"type": "text"
+						},
+						{
+							"key": "_charset_",
+							"value": "utf-8",
+							"type": "text"
+						},
+						{
+							"key": "cmd",
+							"value": "createTag",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5502/bin/tagcommand",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5502",
+					"path": [
+						"bin",
+						"tagcommand"
+					]
+				},
+				"description": "This request will create a Tag namespace in AEM"
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Tag",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "X-Requested-With",
+							"value": "XMLHttpRequest",
+							"type": "text"
+						},
+						{
+							"key": "Referer",
+							"value": "http://localhost:5502",
+							"type": "text"
+						},
+						{
+							"key": "Host",
+							"value": "localhost:5502",
+							"type": "text"
+						},
+						{
+							"key": "Origin",
+							"value": "http://localhost:5502",
+							"type": "text"
+						},
+						{
+							"key": "_charset_",
+							"value": "utf-8",
+							"type": "text"
+						},
+						{
+							"key": "./jcr:title",
+							"value": "Politics-Title-Edited",
+							"type": "text"
+						},
+						{
+							"key": "./jcr:description",
+							"value": "Politics-Description",
+							"type": "text"
+						},
+						{
+							"key": "./jcr:lastModified",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "./jcr:lastModifiedBy:",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "jcr:primaryType",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "./jcr:title.fr",
+							"value": "French Politics Title",
+							"type": "text"
+						},
+						{
+							"key": "titleReadFrom",
+							"value": " contentNode",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5502/content/cq:tags/news-website/politics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5502",
+					"path": [
+						"content",
+						"cq:tags",
+						"news-website",
+						"politics"
+					]
+				},
+				"description": "This request will edit a tag in AEM. It also adds a French diction to the tag."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Tag",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "X-Requested-With",
+							"value": "XMLHttpRequest",
+							"type": "text"
+						},
+						{
+							"key": "Referer",
+							"value": "http://localhost:5502",
+							"type": "text"
+						},
+						{
+							"key": "Host",
+							"value": "localhost:5502",
+							"type": "text"
+						},
+						{
+							"key": "Origin",
+							"value": "http://localhost:5502",
+							"type": "text"
+						},
+						{
+							"key": "path",
+							"value": "/content/cq:tags/news-website/politics",
+							"type": "text"
+						},
+						{
+							"key": "_charset_",
+							"value": "utf-8",
+							"type": "text"
+						},
+						{
+							"key": "cmd",
+							"value": "deleteTag",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5502/bin/tagcommand",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5502",
+					"path": [
+						"bin",
+						"tagcommand"
+					]
+				},
+				"description": "This request will delete a tag in AEM"
+			},
+			"response": []
+		},
+		{
+			"name": "List of Tagged Items",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:5502/bin/tagcommand?X-Requested-With=XMLHttpRequest&Referer=http://localhost:5502&Host=localhost:5502&_charset_=utf-8&cmd=list&path=/content/cq:tags/news-website/politics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5502",
+					"path": [
+						"bin",
+						"tagcommand"
+					],
+					"query": [
+						{
+							"key": "X-Requested-With",
+							"value": "XMLHttpRequest"
+						},
+						{
+							"key": "Referer",
+							"value": "http://localhost:5502"
+						},
+						{
+							"key": "Host",
+							"value": "localhost:5502"
+						},
+						{
+							"key": "_charset_",
+							"value": "utf-8"
+						},
+						{
+							"key": "cmd",
+							"value": "list"
+						},
+						{
+							"key": "path",
+							"value": "/content/cq:tags/news-website/politics"
+						}
+					]
+				},
+				"description": "This request will list all the items that are tagged with a tag sent in the request"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "admin",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "11c07da6-faec-447c-a0fa-b44e9baf02e9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "97e4cfe2-0f7a-4239-bc4a-4e2ee4c92cc3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
